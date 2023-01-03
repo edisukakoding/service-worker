@@ -10,6 +10,6 @@ this.addEventListener('install', event => {
 this.addEventListener('fetch', event => {
     event.respondWith(caches.match(event.request).catch(() => fetch(event.request))).then((r) => {
         caches.open('v1').then(cache => cache.put(event.request, r))
-    })
-    return r.clone()
-}).catch(() => caches.match('/service-worker/index.html'))
+        return r.clone()
+    }).catch(() => caches.match('/service-worker/index.html'))
+})
